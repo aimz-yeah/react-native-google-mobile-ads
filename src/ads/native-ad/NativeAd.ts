@@ -84,12 +84,11 @@ export class NativeAd {
     this.eventEmitter = new EventEmitter();
   }
 
-  console.log('test NativeAD')
-
   private onNativeAdEvent({ responseId, type }: NativeAdEventPayload) {
     if (this.responseId !== responseId) {
       return;
     }
+    console.log('respad event', responseId, type)
     this.eventEmitter.emit(type);
   }
 
